@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dev Forum</title>
+
+    <!-- daisyUi start -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- daisyUi end -->
+
+    <!-- icons start -->
+    <script
+      src="https://kit.fontawesome.com/2b4680fd93.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- icons end -->
+
+    <!-- fonts start -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fonts end -->
+  </head>
+  <body>
+    <!-- sign up model start -->
+    <dialog id="sign_up_modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <form method="dialog">
+          <button
+            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            title="Close"
+          >
+            ✕
+          </button>
+        </form>
+        <div class="text-black w-full">
+          <h1 class="mb-8 text-3xl text-center">Sign up</h1>
+          <input
+            type="text"
+            class="block border border-grey-light w-full p-3 rounded mb-4"
+            name="full_name"
+            placeholder="Full Name"
+          />
+
+          <input
+            type="text"
+            class="block border border-grey-light w-full p-3 rounded mb-4"
+            name="email"
+            placeholder="Email"
+          />
+
+          <input
+            type="password"
+            class="block border border-grey-light w-full p-3 rounded mb-4"
+            name="password"
+            placeholder="Password"
+          />
+          <input
+            type="password"
+            class="block border border-grey-light w-full p-3 rounded mb-4"
+            name="confirm_password"
+            placeholder="Confirm Password"
+          />
+
+          <form method="dialog">
+            <button
+              type="submit"
+              class="w-full text-center py-3 rounded bg-green text-white hover:bg-indigo-400 bg-indigo-600 focus:outline-none my-1"
+            >
+              Create Account
+            </button>
+          </form>
+          <div class="text-center text-sm text-grey-dark mt-4">
+            By signing up, you agree to the
+            <a
+              class="no-underline border-b border-grey-dark text-grey-dark"
+              href="#"
+            >
+              Terms of Service
+            </a>
+            and
+            <a
+              class="no-underline border-b border-grey-dark text-grey-dark"
+              href="#"
+            >
+              Privacy Policy
+            </a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <!-- sign up model end -->
+    <header class="lg:container lg:px-16 mx-auto font-[Mulish] lg:pt-4">
+      <!-- nav start -->
+      <nav class="navbar bg-base-100">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a><i class="fa-solid fa-house"></i> Home</a>
+              </li>
+              <li>
+                <a><i class="fa-solid fa-pen"></i> Edit</a>
+              </li>
+              <li>
+                <a><i class="fa-solid fa-user-plus"></i> Add User</a>
+              </li>
+              <li>
+                <a><i class="fa-solid fa-flag"></i> Pages</a>
+              </li>
+            </ul>
+          </div>
+          <a
+            class="btn btn-ghost lg:text-5xl text-3xl font-bold lg:font-extrabold"
+            >Dev</a
+          >
+        </div>
+        <div class="navbar-end">
+          <div class="flex gap-4">
+            <div class="hidden lg:flex gap-2">
+              <div class="tooltip tooltip-bottom" data-tip="Home">
+                <button
+                  class="btn bg-gray-50 rounded-full border border-gray-300"
+                >
+                  <i class="fa-solid fa-house"></i>
+                </button>
+              </div>
+              <div class="tooltip tooltip-bottom" data-tip="Edit">
+                <button
+                  class="btn bg-gray-50 rounded-full border border-gray-300"
+                >
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+              </div>
+              <div class="tooltip tooltip-bottom" data-tip="Add User">
+                <button
+                  class="btn bg-gray-50 rounded-full border border-gray-300"
+                >
+                  <i class="fa-solid fa-user-plus"></i>
+                </button>
+              </div>
+              <div class="tooltip tooltip-bottom" data-tip="Pages">
+                <button
+                  class="btn bg-gray-50 rounded-full border border-gray-300"
+                >
+                  <i class="fa-solid fa-flag"></i>
+                </button>
+              </div>
+            </div>
+            <a
+              class="btn rounded-3xl px-8 py-2 bg-indigo-400 text-white mr-2 lg:mr-0"
+              onclick="sign_up_modal.showModal()"
+              >Sign In</a
+            >
+          </div>
+        </div>
+      </nav>
+      <!-- nav end -->
+
+      <!-- banner start -->
+      <section
+        class="m-4 lg:mx-0 bg-[#12132D] rounded-3xl lg:p-20 p-6 bg-[url(images/bgbanner.png)] bg-cover bg-bottom flex flex-wrap lg:gap-20 gap-10 items-center"
+      >
+        <div class="flex flex-col gap-5 lg:w-1/2">
+          <h2 class="lg:text-6xl text-4xl font-extrabold text-white">
+            Welcome to the <br />
+          </h2>
+          <h2 class="lg:text-6xl text-4xl font-extrabold text-white">
+            <span
+              class="bg-gradient-to-r from-indigo-400 to-indigo-400/30 bg-clip-text text-transparent text-5xl lg:text-7xl"
+              >Dev</span
+            >
+            Forum
+          </h2>
+          <p class="text-white lg:my-2">
+            We believe in fostering a supportive and inclusive environment where
+            everyone feels comfortable expressing their ideas and engaging in
+            constructive dialogue.
+          </p>
+          <label
+            for="search-text"
+            class="flex gap-1 items-center bg-white p-1 rounded-3xl flex-col lg:flex-row"
+          >
+            <input
+              id="search-text"
+              list="category"
+              type="text"
+              placeholder="Search here anything"
+              class="border-none outline-none px-4 flex-1 py-4 lg:py-0"
+            />
+            <datalist id="category">
+              <option value="Comedy"></option>
+              <option value="Coding"></option>
+              <option value="Music "></option>
+            </datalist>
+
+            <button
+              class="btn rounded-3xl px-8 py-2 bg-indigo-400 text-white"
+              id="search-btn"
+            >
+              Search
+            </button>
+          </label>
+        </div>
+        <div
+          class="bg-white text-black flex-1 rounded-3xl p-10 text-xl font-semibold flex flex-col gap-4"
+        >
+          <div class="flex justify-between gap-4">
+            <span>Registered Users</span> <span>01</span>
+          </div>
+          <div class="flex justify-between gap-4">
+            <span>Forum</span> <span>05</span>
+          </div>
+          <div class="flex justify-between gap-4">
+            <span>Topics</span> <span>01</span>
+          </div>
+          <div class="flex justify-between gap-4">
+            <span>Replies</span> <span>01</span>
+          </div>
+        </div>
+      </section>
+      <!-- banner end -->
+    </header>
+    <main id="main" class="lg:container lg:px-16 mx-auto font-[Mulish]">
+      <!-- Discuss start -->
+      <section class="lg:my-20 my-6 p-4 lg:p-0">
+        <h2 class="lg:text-5xl text-4xl font-extrabold text-center">
+          Let's Discuss
+        </h2>
+        <p class="text-center text-gray-500 lg:my-6 my-4 lg:w-2/3 lg:mx-auto">
+          Our aim is to create a vibrant and intellectually stimulating
+          community where members can learn from one another and broaden their
+          horizons.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <!-- card container start -->
+          <div class="lg:col-span-2 col-span-1">
+            <div
+              id="all-post-loader"
+              class="text-lg flex items-center justify-center gap-2"
+            >
+              <span class="loading loading-infinity loading-lg"></span>
+              <span class="animate-pulse">loading data </span>
+              <span class="loading loading-infinity loading-lg"></span>
+            </div>
+            <div
+              id="all-post-error"
+              class="bg-red-400 p-4 rounded-2xl text-white hidden"
+            >
+              error show here
+            </div>
+            <div class="flex flex-col gap-4" id="all-post-container"></div>
+          </div>
+          <!-- card container end -->
+          <div class="bg-gray-100 rounded-3xl lg:p-8 p-4 h-fit">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-extrabold">Title</h3>
+              <span class="text-lg"
+                ><i class="fa-solid fa-check-double text-green-400"></i> Mark as
+                read (<span id="read-count">0</span>)</span
+              >
+            </div>
+            <!-- watched card container start -->
+            <div id="watched-container" class="mt-4 flex flex-col gap-4"></div>
+            <!-- watched card container end -->
+          </div>
+        </div>
+      </section>
+      <!-- Discuss end -->
+      <!-- join start -->
+      <section
+        class="mb-6 lg:mb-20 mx-4 lg:mx-0 flex bg-[#12132D] p-6 lg:p-20 rounded-3xl gap-16 items-center flex-col-reverse lg:flex-row"
+      >
+        <div class="lg:flex-1">
+          <h2 class="text-4xl text-white font-extrabold">Join Our Forum</h2>
+          <p class="text-gray-300 my-4">
+            Feel free to start new threads, ask questions, and contribute to
+            existing discussions.
+          </p>
+          <button
+            class="btn rounded-3xl px-8 py-2 bg-indigo-400 text-white border-none"
+            onclick="sign_up_modal.showModal()"
+          >
+            Registered Now
+          </button>
+        </div>
+        <img src="images/joinforum.png" alt="join" class="lg:w-1/3" />
+      </section>
+      <!-- join end -->
+      <!-- Latest start -->
+      <section class="lg:my-20 my-6 p-4 lg:p-0">
+        <h2 class="lg:text-5xl text-4xl font-extrabold text-center">
+          Latest Posts
+        </h2>
+        <p class="text-center text-gray-500 lg:my-6 my-4 lg:w-2/3 lg:mx-auto">
+          We hope you enjoy your time in our forum and find it a valuable
+          resource for learning, connecting, and exchanging ideas. Happy
+          posting!
+        </p>
+        <!-- latest card container start -->
+        <div
+          id="latest-post-loader"
+          class="text-lg flex items-center justify-center gap-2 my-4"
+        >
+          <span class="loading loading-infinity loading-lg"></span>
+          <span class="animate-pulse">loading data </span>
+          <span class="loading loading-infinity loading-lg"></span>
+        </div>
+        <div
+          id="latest-post-error"
+          class="bg-red-400 p-4 rounded-2xl text-white mb-4 hidden"
+        >
+          error show here
+        </div>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-3 gap-4"
+          id="latest-post-container"
+        ></div>
+        <!-- latest card container end -->
+      </section>
+      <!-- Latest end -->
+    </main>
+    <footer
+      class="lg:px-24 font-[Mulish] lg:pt-24 p-4 pt-10 bg-gradient-to-b from-gray-200 text-center"
+    >
+      <h2 class="lg:text-6xl text-center text-3xl font-extrabold">Dev</h2>
+      <p class="text-gray-500 lg:w-2/3 my-4 lg:mx-auto lg:my-8">
+        Our forum is designed to foster a respectful and inclusive environment
+        where diverse perspectives are valued and encouraged.
+      </p>
+      <!-- social link start -->
+      <div class="">
+        <div class="tooltip tooltip-bottom" data-tip="Twitter">
+          <a class="btn btn-ghost rounded-full text-xl aspect-square">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+        </div>
+        <div class="tooltip tooltip-bottom" data-tip="Facebook">
+          <a class="btn btn-ghost rounded-full text-xl aspect-square">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </div>
+        <div class="tooltip tooltip-bottom" data-tip="Instagram">
+          <a class="btn btn-ghost rounded-full text-xl aspect-square">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+        <div class="tooltip tooltip-bottom" data-tip="Github">
+          <a class="btn btn-ghost rounded-full text-xl aspect-square">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+      <!-- social link end -->
+      <p
+        class="border-t-2 border-gray-150 lg:mt-6 mt-3 lg:p-10 p-6 text-center lg:mb-10 mb-0"
+      >
+        &copy; 2024, All Rights Reserved.
+      </p>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>
